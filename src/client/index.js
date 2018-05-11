@@ -1,5 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import RouterSetup from './components/main/RouterSetup'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+class Index extends Component {
+  render() {
+    return <RouterSetup />
+  }
+}
+
+ReactDOM.render(<Index />, document.getElementById('root'))

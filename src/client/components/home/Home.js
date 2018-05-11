@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import './app.css'
+import React, { Component, Fragment } from 'react'
+import Navbar from '../main/Navbar/Navbar'
+import '../../scss/styles.scss'
 
-export default class App extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props)
     this.state = { username: null }
@@ -15,13 +16,14 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
+        <Navbar />
         {this.state.username ? (
           <h1>Hello {this.state.username}</h1>
         ) : (
           <h1>Loading.. please wait!</h1>
         )}
-      </div>
+      </Fragment>
     )
   }
 }
