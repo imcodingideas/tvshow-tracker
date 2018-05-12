@@ -4,13 +4,13 @@
 
 .navbar-header {
   float: left;
-  padding-left: 15px;
 }
 
 .navbar-brand {
+  height: 70px;
   background-color: #ffe939;
   transition: 0.25s all;
-  margin-left: -15px;
+  padding: 15px
 }
 
 .navbar-nav {

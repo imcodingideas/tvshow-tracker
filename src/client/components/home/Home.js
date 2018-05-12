@@ -61,7 +61,7 @@ export default class Home extends Component {
         <div className="container">
           <div className="card">
             <div className="card-header">
-              {this.state.headingTitle}
+              <span className="heading-title">{this.state.headingTitle}</span>
               <div className="float-right">
                 <input
                   name="queryName"
@@ -79,8 +79,8 @@ export default class Home extends Component {
                     <img className="img-rounded" width="100%" />
                   </a>
                   <div className="text-center">
-                    <a href="/shows/{{show._id}}">ShowName</a>
-                    <p className="text-muted">Episodes: show.episodes.length</p>
+                    <a href="/shows/{{show._id}}">Show Name</a>
+                    <p className="text-muted">Episodes: 1</p>
                   </div>
                 </div>
               </div>
