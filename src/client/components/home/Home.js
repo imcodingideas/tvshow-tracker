@@ -13,10 +13,11 @@ export default class Home extends Component {
       alphabet: [],
     }
     this.filterByGenre = this.filterByGenre.bind(this)
+    this.filterByAlphabet = this.filterByAlphabet.bind(this)
   }
 
   componentDidMount() {
-    fetch('/api/shows')
+    fetch('/api/init')
       .then(res => res.json())
       .then(data => {
         const { headingTitle, genres, alphabet } = data
@@ -26,6 +27,13 @@ export default class Home extends Component {
           alphabet,
         })
       })
+  }
+
+  filterByAlphabet(char) {
+    this.setState(prevState => ({
+      alphabet: prevState.alphabet.filter(c => c !== char),
+      headingTitle: char,
+    }))
   }
 
   filterByGenre(searchTerm) {

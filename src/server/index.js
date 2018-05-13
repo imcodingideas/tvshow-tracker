@@ -1,11 +1,21 @@
 const express = require('express')
-const os = require('os')
+const mongoose = require('mongoose')
+const User = require('./models/User')
+const Show = require('./models/Show')
 
 const app = express()
 
 app.use(express.static('dist'))
 
-app.get('/api/shows', (req, res) => {
+// Connect to the Database
+mongoose.connect('mongodb://localhost/tvshow')
+
+mongoose.Promise = global.Promise
+mongoose.connection.on('error', err => {
+  console.error(`🙅 🚫 → ${err.message}`)
+})
+
+app.get('/api/init', (req, res) => {
   const alphabet = [
     '0-9',
     'A',
@@ -67,4 +77,23 @@ app.get('/api/shows', (req, res) => {
   res.send({ headingTitle, genres, alphabet })
 })
 
-app.listen(8080, () => console.log('Listening on port 8080!'))
+app.get('/api/shows', (req, res) => {
+  const { genre, alphabet } = req.query
+  res.send('Hello')
+})
+
+app.post('/api/shows', (req, res) => {
+  const postHeader = {
+    userKey: 'MF0L3WXHW7UYZX30',
+    username: 'josephvqm',
+  }
+})
+
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.send(500, { message: err.message })
+})
+
+app.listen(8080, () => {
+  console.log(`Express running → PORT 8080`)
+})
